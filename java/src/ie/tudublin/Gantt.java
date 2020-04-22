@@ -78,12 +78,11 @@ public class Gantt extends PApplet
 			int totalTime = tasks.get(i).getEnd()-tasks.get(i).getStart();
 			float y = map(i, 0, tasks.size(), 2 * margin, height - margin);
 			colorMode(HSB);
-			float cGap = 255 /(float) (i*50);
-			float c = (cGap * (i*50) + offset) % 255; 
-			fill(c, 255, 255);
-			rect(180+((tasks.get(i).getStart()*20)-(20)), y, totalTime * 20, 30, 7);
 			String text = tasks.get(i).getTask();
 			text(text, 100, y);
+			float color = map(i, 0, tasks.size(), 0, 255);
+			fill(color, 255, 255);
+			rect(180+((tasks.get(i).getStart()*20)-(20)), y, totalTime * 20, 30, 7);
         }
 	}
 	
