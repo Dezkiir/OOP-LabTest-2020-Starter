@@ -4,7 +4,6 @@ import processing.core.PApplet;
 import processing.data.Table;
 import processing.data.TableRow;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class Gantt extends PApplet
 {	
@@ -25,7 +24,7 @@ public class Gantt extends PApplet
 	{
 		for(Task t:tasks)
         {
-            System.out.println(tasks);
+            System.out.println(t);
 		}
 		System.out.println();
 	}
@@ -105,5 +104,15 @@ public class Gantt extends PApplet
 		background(0);
 		drawGrid();
 		//drawTasks();
+	}
+
+	public void StringConcat()
+	{
+		for(int i = 0; i < 10; i++)
+		{	
+			Task t = tasks.get(i).getStart();
+			println("****");
+			println(t);
+		}
 	}
 }

@@ -14,7 +14,7 @@ public class Task
         return Task;
     }
 
-    public int getStart() {
+    public Task getStart() {
         return Start;
     }
 
