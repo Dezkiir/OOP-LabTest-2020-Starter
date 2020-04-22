@@ -35,21 +35,11 @@ public class Gantt extends PApplet
 		size(800, 600);
 	}
 	
-	// public void mousePressed()
-	// {
-	// 	println("Mouse pressed");	
-	// 	for(int i = 0 ; i < products.size() ; i ++)
-    //     {
-    //         float y = map(i, 0, products.size(), border, height - border);
-    //         if (mouseX > left && mouseX < left + w 
-    //             && mouseY > y && mouseY < y + h                 
-    //             )
-    //             {
-    //                 bill.add(products.get(i));
-    //                 break;
-    //             }
-    //     }
-	// }
+	public void mousePressed()
+	{
+		println("Mouse pressed");	
+		
+	}
 
 	public void mouseDragged()
 	{
@@ -79,14 +69,6 @@ public class Gantt extends PApplet
             line(lineStart + (20 * i), paddingTop, lineStart+ (20 * i), paddingBottom);
             text(i, x, border / 2);
 		}
-
-		
-		//Horizontal Lines
-		for(int j = 0; j < 10; j++)
-		{
-			noStroke();
-			line(lineStart, paddingTop + (50 * j), 760, paddingTop + (50 * j));
-		}
 	}
 	
 	float offset = 0;
@@ -95,13 +77,13 @@ public class Gantt extends PApplet
 		int margin = 26;
 		for(int i = 0 ; i < 9 ; i ++)
         {
-			int math = tasks.get(i).getEnd()-tasks.get(i).getStart();
+			int totalTime = tasks.get(i).getEnd()-tasks.get(i).getStart();
 			float y = map(i, 0, tasks.size(), 2 * margin, height - margin);
 			colorMode(HSB);
 			float cGap = 255 /(float) (i*50);
 			float c = (cGap * (i*50) + offset) % 255; 
 			fill(c, 255, 255);
-			rect(170+(tasks.get(i).getStart()), y, math*30, 30, 7);
+			rect(170+(tasks.get(i).getStart()), y, totalTime*30, 30, 7);
 			String text = tasks.get(i).getTask();
 			text(text, 100, y);
         }
