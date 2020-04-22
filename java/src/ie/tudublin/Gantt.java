@@ -37,8 +37,6 @@ public class Gantt extends PApplet
 	
 	public void mousePressed()
 	{
-		println("Mouse pressed");	
-		
 	}
 
 	public void mouseDragged()
@@ -83,7 +81,7 @@ public class Gantt extends PApplet
 			float cGap = 255 /(float) (i*50);
 			float c = (cGap * (i*50) + offset) % 255; 
 			fill(c, 255, 255);
-			rect(170+(tasks.get(i).getStart()), y, totalTime*30, 30, 7);
+			rect(180+((tasks.get(i).getStart()*20)-(20)), y, totalTime * 20, 30, 7);
 			String text = tasks.get(i).getTask();
 			text(text, 100, y);
         }
