@@ -14,7 +14,7 @@ public class Task
         return Task;
     }
 
-    public Task getStart() {
+    public int getStart() {
         return Start;
     }
 
@@ -34,13 +34,8 @@ public class Task
         this(tr.getString("Task"), tr.getInt("Start"), tr.getInt("End"));
     }
 
-
     public String toString()
     {
         return this.Task + ", " + this.Start + ", " + this.End;
     }
-
-	public char[] getName() {
-		return null;
-	}
 }

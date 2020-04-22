@@ -84,18 +84,26 @@ public class Gantt extends PApplet
 		//Horizontal Lines
 		for(int j = 0; j < 10; j++)
 		{
-			float x = map(j, 0, 9, 20, 100);
 			noStroke();
-            line(lineStart, paddingTop + (50 * j), 760, paddingTop + (50 * j));
+			line(lineStart, paddingTop + (50 * j), 760, paddingTop + (50 * j));
 		}
 	}
 	
+	float offset = 0;
 	public void drawTasks() 
 	{
+		int margin = 26;
 		for(int i = 0 ; i < 9 ; i ++)
         {
+			int math = tasks.get(i).getEnd()-tasks.get(i).getStart();
+			float y = map(i, 0, tasks.size(), 2 * margin, height - margin);
 			colorMode(HSB);
-			// rect(a, b, c, d);
+			float cGap = 255 /(float) (i*50);
+			float c = (cGap * (i*50) + offset) % 255; 
+			fill(c, 255, 255);
+			rect(170+(tasks.get(i).getStart()), y, math*30, 30, 7);
+			String text = tasks.get(i).getTask();
+			text(text, 100, y);
         }
 	}
 	
@@ -103,16 +111,7 @@ public class Gantt extends PApplet
 	{			
 		background(0);
 		drawGrid();
-		//drawTasks();
-	}
-
-	public void StringConcat()
-	{
-		for(int i = 0; i < 10; i++)
-		{	
-			Task t = tasks.get(i).getStart();
-			println("****");
-			println(t);
-		}
+		drawTasks();
+		// StringConcat();
 	}
 }
