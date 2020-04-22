@@ -18,13 +18,14 @@ public class Gantt extends PApplet
 			Task t = new Task(row);
 			tasks.add(t);
 		}
+	}
 	
 
 	public void printTasks()
 	{
 		for(Task t:tasks)
         {
-            System.out.println(t);
+            System.out.println(tasks);
 		}
 		System.out.println();
 	}
@@ -87,7 +88,6 @@ public class Gantt extends PApplet
 			float x = map(j, 0, 9, 20, 100);
 			noStroke();
             line(lineStart, paddingTop + (50 * j), 760, paddingTop + (50 * j));
-            text(tasks, x, border / 2);
 		}
 	}
 	
@@ -96,7 +96,7 @@ public class Gantt extends PApplet
 		for(int i = 0 ; i < 9 ; i ++)
         {
 			colorMode(HSB);
-			
+			// rect(a, b, c, d);
         }
 	}
 	
@@ -104,5 +104,6 @@ public class Gantt extends PApplet
 	{			
 		background(0);
 		drawGrid();
+		//drawTasks();
 	}
 }
