@@ -95,6 +95,5 @@ public class Gantt extends PApplet
 		background(0);
 		drawGrid();
 		drawTasks();
-		// StringConcat();
 	}
 }
