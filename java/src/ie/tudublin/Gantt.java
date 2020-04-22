@@ -72,17 +72,21 @@ public class Gantt extends PApplet
 	float offset = 0;
 	public void drawTasks() 
 	{
-		int margin = 26;
-		for(int i = 0 ; i < 9 ; i ++)
-        {
-			int totalTime = tasks.get(i).getEnd()-tasks.get(i).getStart();
-			float y = map(i, 0, tasks.size(), 2 * margin, height - margin);
-			colorMode(HSB);
-			String text = tasks.get(i).getTask();
-			text(text, 100, y);
+		float buffer = width / 16;
+		float rHeight = 40;
+		for(int i = 0; i < tasks.size(); i++)
+		{
+			fill(255);
+			float y = map(i, 0, tasks.size(), 2 * buffer, height - buffer);
+			text(tasks.get(i).getTask(), buffer * 2, y);
+			noStroke();
 			float color = map(i, 0, tasks.size(), 0, 255);
 			fill(color, 255, 255);
-			rect(180+((tasks.get(i).getStart()*20)-(20)), y, totalTime * 20, 30, 7);
+	
+			float BottomRect = map(tasks.get(i).getStart(), 1, 30, 180, 760);
+			float RightRect = map(tasks.get(i).getEnd(), 1, 30, 180, 760);
+			float LeftRect = RightRect - BottomRect;
+			rect(BottomRect, y - rHeight / 2, LeftRect, rHeight);
         }
 	}
 	
